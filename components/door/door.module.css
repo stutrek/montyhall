@@ -13,7 +13,8 @@
     border: 1px solid black;
     background-color: white;
 
-    transition: opacity ease-in-out 300ms, transform ease-in-out 300ms;
+    transition: opacity ease-in-out 300ms, transform ease-in-out 300ms,
+        background-color ease-in-out 300ms;
 }
 
 .closed,

@@ -16,6 +16,9 @@ function getClassName(props: Props) {
             return styles.incorrect;
         }
     }
+    if (door.isRemoved) {
+        return styles.incorrect;
+    }
     return styles.closed;
 }
 
