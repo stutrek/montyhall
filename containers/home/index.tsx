@@ -31,12 +31,21 @@ function NextButtons({ montyHall }: { montyHall: MontyHall }) {
     }
 
     if (gameState === 'selected') {
-        return (
-            <div>
-                Your selection is set. Monty Hall is choosing a door to
-                remove...
-            </div>
-        );
+        if (doors.length === 3) {
+            return (
+                <div>
+                    Your selection is set. Monty Hall is choosing a door to
+                    remove...
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    Your selection is set. Monty Hall is choosing which doors to
+                    remove...
+                </div>
+            );
+        }
     }
 
     if (gameState === 'removed') {
@@ -75,8 +84,8 @@ function NextButtons({ montyHall }: { montyHall: MontyHall }) {
     }
 }
 
-export function HomeContainer() {
-    const montyHall = useMontyHall(3);
+export function HomeContainer({ doorCount = 3 }) {
+    const montyHall = useMontyHall(doorCount);
     const { doors, selectDoor, gameState } = montyHall;
     return (
         <div className={styles.container}>

@@ -40,7 +40,7 @@ export function useMontyHall(doorCount = 3) {
             setOriginalSelection(undefined);
         },
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        [currentGame]
+        [currentGame, doorCount]
     );
 
     const selectDoor = useCallback(
