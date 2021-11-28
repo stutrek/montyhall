@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useEffect } from 'react';
 import { DoorDisplay } from '../../components/door';
 import styles from './Home.module.css';
-import { MontyHall, useMontyHall } from './useMontyHall';
+import { MontyHall, useMontyHall } from '../../hooks/useMontyHall';
 
 function NextButtons({ montyHall }: { montyHall: MontyHall }) {
     const { doors, originalSelection, advance, gameState, nextGame } =

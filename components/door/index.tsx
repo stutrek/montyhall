@@ -1,4 +1,4 @@
-import { Door } from '../../containers/home/useMontyHall';
+import { Door } from '../../hooks/useMontyHall';
 import styles from './door.module.css';
 
 type Props = {
@@ -9,15 +9,12 @@ type Props = {
 
 function getClassName(props: Props) {
     const { door } = props;
-    switch (true) {
-        case props.isOpen:
-            if (door.isCorrect) {
-                return styles.correct;
-            } else {
-                return styles.incorrect;
-            }
-        case door.isRemoved:
-            return styles.removed;
+    if (props.isOpen) {
+        if (door.isCorrect) {
+            return styles.correct;
+        } else {
+            return styles.incorrect;
+        }
     }
     return styles.closed;
 }
@@ -28,6 +25,8 @@ export function DoorDisplay(props: Props) {
 
     if (door.isSelected) {
         className += ` ${styles.selected}`;
+    } else if (door.isRemoved) {
+        className += ` ${styles.removed}`;
     }
 
     if (props.onClick) {
